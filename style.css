@@ -16,6 +16,7 @@ html {
   --gray: #f8f8f9;
   --black: #0c0c0c;
   --light-black: #1f1f1f;
+  --shadow: #dddddd;
 }
 body {
   font-weight: 400;
@@ -85,7 +86,7 @@ h5 {
 /*======================== Header Start =======================*/
 .top_bar {
   display: flex;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 2rem;
   color: var(--white);
   background-color: var(--dark-blue);
   align-items: center;
@@ -99,13 +100,20 @@ h5 {
   border-radius: 50%;
   color: var(--sky-color);
   background-color: var(--white);
+  transition: all 0.4s ease-in-out;
+}
+.top_bar a:hover i{
+  color: var(--dark-blue);
 }
 .main_navbar {
   display: flex;
   position: relative;
-  padding: 2rem 2rem;
+  padding: 2rem 3rem;
   align-items: center;
   justify-content: space-between;
+}
+.navbar_shadow {
+  box-shadow: 0px .2rem .7rem var(--shadow);
 }
 .logo h1 a {
   font-size: 2.5rem;
@@ -275,8 +283,8 @@ h5 {
   background-image: url(./images/track-bg.jpg);
   background-position: center;
   padding: 7rem 0;
-  margin-top: 7rem;
   position: relative;
+  margin-top: 7rem;
 }
 #track::before {
   content: "";
@@ -323,9 +331,6 @@ h5 {
 }
 /*======================== Track Section End =======================*/
 /*======================== Testimonial Section Start =======================*/
-#testimonial {
-  padding-bottom: 5rem;
-}
 .testimonial_slider {
   display: flex;
   width: 85%;
@@ -391,7 +396,7 @@ h5 {
 }
 .testimonial_text {
   font-size: 1.4rem;
-  border: 1px solid #ddd;
+  border: 1px solid var(--shadow);
   padding: 3rem;
   margin-bottom: 2rem;
   box-shadow: 0px 0px 2rem var(--gray);
@@ -407,9 +412,6 @@ h5 {
 }
 /*======================== Testimonial Section End =======================*/
 /*======================== Contact Start =======================*/
-#contact {
-  padding-bottom: 6rem;
-}
 .contact_grid{
   display: grid;
   gap: 3rem;
@@ -427,7 +429,7 @@ h5 {
 textarea {
   padding: 2rem 1.5rem;
   border: none;
-  box-shadow: 0 0 1rem #ddd;
+  box-shadow: 0 0 1rem var(--shadow);
   font-size: 1.7rem;
 }
 .from 
@@ -464,6 +466,121 @@ textarea:focus-visible {
   );
 }
 /*======================== Contact End =======================*/
+/*======================== Registration Start =======================*/
+#registration{
+  width: 50vw;
+  height: 100%;
+  text-align: center;
+  margin: 0 auto;
+
+}
+.registration_text{
+  padding: 5rem 3rem;
+  border-radius: .5rem;
+  box-shadow: 0 0 2rem var(--shadow);
+}
+.registration_text h2{
+  text-transform: uppercase;
+  color: var(--sky-color);
+  margin-bottom: 4rem;
+}
+.registration_form{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.registration_form input{
+  padding: 1.5rem .5rem;
+  border: none;
+  border-bottom: 1px solid var(--shadow);
+}
+.registration_form input[type="submit"]{
+  margin-top: 2rem;
+  cursor: pointer;
+  border-radius: .5rem;
+}
+/*======================== Registration End =======================*/
+/*======================== Footer Start =======================*/
+footer{
+  background-color: var(--dark-blue);
+  margin-top: 7rem;
+}
+.grid_four_column{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding: 5rem;
+}
+.footer_text h4{
+  color: var(--white );
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+.footer_text a{
+  color: var(--white);
+  transition: all 0.3s ease-in-out;
+}
+.footer_text a:hover{
+  color: var(--sky-color);
+}
+.footer_text p{
+  color: var(--white);
+}
+.contact_link {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.contact_link a span{
+  margin-left: 1rem;
+}
+.contact_link a:first-child span{
+  margin-left: 1.3rem;
+}
+.social_link {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.9rem;
+}
+.links ul{
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+input#subscribe {
+  width: 100%;
+  border: none;
+  padding: 1rem 0;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  background: transparent;
+  border-bottom: 1px solid var(--white);
+}
+input#subscribe::placeholder{
+  color: var(--white);
+}
+.subscribe button {
+  width: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 1.5rem 0;
+  font-size: 1.7rem;
+}
+.subscribe button:hover{
+  background-color: #045c6b;
+}
+.copy_right{
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--dark-blue);
+  background-color: var(--white);
+}
+.copy_right a{
+  color: var(--dark-blue);
+}
+/*======================== Footer End =======================*/
 /*======================== Responsive Start =======================*/
 /* // Large devices (desktops, 992px and up) */
 @media (max-width: 992px) {
@@ -531,6 +648,9 @@ textarea:focus-visible {
   .map {
     width: 100%;
   }
+  .grid_four_column{
+    padding: 5rem 0;
+  }
 }
 /* Medium devices (tablets, 768px and up) */
 @media (max-width: 768px) {
@@ -557,6 +677,13 @@ textarea:focus-visible {
     gap: 3rem;
     grid-template-columns: 100%;
   }
+  .grid_four_column{
+    grid-template-columns: 1fr 1fr;
+    padding: 5rem 0;
+  }
+  #registration{
+    width: 100%;
+  }
 }
 /* // Small devices (landscape phones, 576px and up) */
 @media (max-width: 576px) {
@@ -575,6 +702,10 @@ textarea:focus-visible {
   }
   .swiper-slide {
     padding-right: 0;
+  }
+  .grid_four_column{
+    grid-template-columns: 1fr;
+    padding: 5rem 0;
   }
 }
 
